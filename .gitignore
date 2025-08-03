@@ -1,0 +1,7 @@
+/api/target/
+/college-ui/node_modules/
+/college-ui/dist/
+.vscode/
+
+# Log files
+*.log

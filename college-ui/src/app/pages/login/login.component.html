@@ -1,0 +1,54 @@
+<div class="login-container">
+  
+  <div class="branding-section">
+    <div class="logo">
+      <img src="assets/images/logo.jpg" alt="Carmel College Logo">
+    </div>
+    <h1 class="college-name">Carmel College of Engineering and Technology</h1>
+  </div>
+
+  <div class="login-card">
+    <h2 class="login-title">Login Here</h2>
+    <form (ngSubmit)="onLogin()">
+      <div class="input-group">
+        <input type="email" id="email" name="email" placeholder="Email Address" [(ngModel)]="loginData.email" required>
+      </div>
+      <div class="input-group">
+        <input type="password" id="password" name="password" placeholder="Password" [(ngModel)]="loginData.password" required>
+      </div>
+      <button type="submit" class="login-btn">Sign In</button>
+    </form>
+    <div class="register-link">
+      <span>Don't have an account? <a routerLink="/register">Sign Up</a></span>
+    </div>
+  </div>
+
+  <footer class="page-footer">
+    <div class="footer-column">
+      <h4>Our Vision</h4>
+      <h5>To mould distinctive engineers with integrity and social commitment.</h5>
+      <p>Our vision is to mould Engineers par Excellence, with Integrity, commitment and human values, who are competent to meet the global standards in business, industry and research and would act as catalysts for the transformation of the society.</p>
+    </div>
+    <div class="footer-column">
+      <h4>Campus Glimpse</h4>
+      <div class="photo-gallery">
+        <img (click)="openImage('assets/images/college2.jpg')" src="assets/images/college2.jpg" alt="Campus life" style="width: 200px; height:auto;">
+        <img (click)="openImage('assets/images/college3.jpg')" src="assets/images/college3.jpg" alt="Library and study hall" style="width:200px; height:auto;">
+        <img (click)="openImage('assets/images/college4.jpg')" src="assets/images/college4.jpg" alt="Students in a lab" style="width:200px; height:auto;">
+      </div>
+    </div>
+    <div class="footer-column">
+      <h4>Our Mission</h4>
+      <h5>Extend harmonious curricular and co-curricular exposure to the students.</h5>
+      <h5>Equip the students to accomplish career goals upholding moral values.</h5>
+      <h5>Encourage the students to contribute for the sustainable development of the society.</h5>
+    </div>
+  </footer>
+
+  <div *ngIf="selectedImageUrl" class="image-modal-overlay" (click)="closeImage()">
+    <div class="image-modal-content">
+      <span class="close-button" (click)="closeImage()">&times;</span>
+      <img [src]="selectedImageUrl" alt="Enlarged campus view">
+    </div>
+  </div>
+</div>

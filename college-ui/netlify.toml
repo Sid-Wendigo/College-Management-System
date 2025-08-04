@@ -1,0 +1,9 @@
+[build]
+  command = "ng build"
+  publish = "dist/college-ui"
+  base = "college-ui"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

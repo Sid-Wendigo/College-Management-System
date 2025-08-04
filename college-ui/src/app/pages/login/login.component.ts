@@ -9,17 +9,16 @@ import { AuthService } from '../../services/auth.service';
   standalone: true,
   imports: [CommonModule, FormsModule, RouterLink],
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'] // <-- Check this line
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
   loginData = { email: '', password: '' };
-
-
   selectedImageUrl: string | null = null;
   
   constructor(private authService: AuthService, private router: Router) { }
 
   onLogin(): void {
+    alert('Login button was clicked!'); // <-- The debug alert is now included
     this.authService.login(this.loginData).subscribe({
       next: (response) => {
         this.authService.saveToken(response.token);

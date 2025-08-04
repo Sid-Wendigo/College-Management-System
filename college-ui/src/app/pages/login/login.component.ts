@@ -13,12 +13,13 @@ import { AuthService } from '../../services/auth.service';
 })
 export class LoginComponent {
   loginData = { email: '', password: '' };
+  errorMessage: string | null = null;
   selectedImageUrl: string | null = null;
-  
+
   constructor(private authService: AuthService, private router: Router) { }
 
   onLogin(): void {
-    alert('Login button was clicked!'); // <-- The debug alert is now included
+    this.errorMessage = null; 
     this.authService.login(this.loginData).subscribe({
       next: (response) => {
         this.authService.saveToken(response.token);
@@ -26,7 +27,7 @@ export class LoginComponent {
       },
       error: (error) => {
         console.error('Login failed!', error);
-        alert('Login failed. Please check your credentials.');
+        this.errorMessage = 'Login failed. Please check your credentials.';
       }
     });
   }

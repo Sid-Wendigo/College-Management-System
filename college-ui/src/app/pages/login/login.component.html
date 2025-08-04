@@ -16,6 +16,9 @@
       <div class="input-group">
         <input type="password" id="password" name="password" placeholder="Password" [(ngModel)]="loginData.password" required>
       </div>
+       <div *ngIf="errorMessage" class="error-message">
+          {{ errorMessage }}
+        </div>
       <button type="submit" class="login-btn">Sign In</button>
     </form>
     <div class="register-link">
@@ -27,14 +30,14 @@
     <div class="footer-column">
       <h4>Our Vision</h4>
       <h5>To mould distinctive engineers with integrity and social commitment.</h5>
-      <p>Our vision is to mould Engineers par Excellence, with Integrity, commitment and human values, who are competent to meet the global standards in business, industry and research and would act as catalysts for the transformation of the society.</p>
+      <p>Our vision is to mould Engineers par Excellence, with Integrity, commitment and human values...</p>
     </div>
     <div class="footer-column">
       <h4>Campus Glimpse</h4>
       <div class="photo-gallery">
-        <img (click)="openImage('assets/images/college2.jpg')" src="assets/images/college2.jpg" alt="Campus life" style="width: 200px; height:auto;">
-        <img (click)="openImage('assets/images/college3.jpg')" src="assets/images/college3.jpg" alt="Library and study hall" style="width:200px; height:auto;">
-        <img (click)="openImage('assets/images/college4.jpg')" src="assets/images/college4.jpg" alt="Students in a lab" style="width:200px; height:auto;">
+        <img (click)="openImage('assets/images/college2.jpg')" src="assets/images/college2.jpg" alt="Campus life">
+        <img (click)="openImage('assets/images/college3.jpg')" src="assets/images/college3.jpg" alt="Library and study hall">
+        <img (click)="openImage('assets/images/college4.jpg')" src="assets/images/college4.jpg" alt="Students in a lab">
       </div>
     </div>
     <div class="footer-column">

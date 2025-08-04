@@ -17,7 +17,7 @@
     background-image: url('../../../assets/images/college6.jpg');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed; /* Keeps background still on scroll */
+    background-attachment: fixed;
 }
 
 .branding-section {
@@ -66,31 +66,16 @@ input:focus { outline: none; background: rgba(255, 255, 255, 0.25); border-color
 .register-link a { color: var(--text-white); font-weight: 600; text-decoration: none; }
 .register-link a:hover { text-decoration: underline; }
 
-/* --- FOOTER STYLES --- */
-.page-footer {
-    width: 100%;
-    max-width: 1200px;
-    padding: 1.5rem;
-    margin-top: 3rem; /* Space between card and footer */
-    box-sizing: border-box;
-    background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: var(--text-white);
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
-    text-align: center;
-    animation: fadeInUp 1.5s ease-in-out;
-}
+.error-message { background-color: #f8d7da; color: #721c24; padding: 0.75rem 1.25rem; margin-bottom: 1rem; border: 1px solid #f5c6cb; border-radius: 6px; text-align: center; font-size: 0.9rem; }
 
+/* --- FOOTER STYLES --- */
+.page-footer { width: 100%; max-width: 1200px; padding: 1.5rem; margin-top: 3rem; box-sizing: border-box; background: rgba(0, 0, 0, 0.4); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.2); color: var(--text-white); display: flex; justify-content: space-around; align-items: flex-start; text-align: left; animation: fadeInUp 1.5s ease-in-out; }
 .footer-column { flex: 1; padding: 0 1rem; }
 .footer-column h4 { margin-top: 0; margin-bottom: 1rem; font-weight: 600; border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 0.5rem; display: inline-block; }
-.footer-column p { font-size: 0.9rem; color: var(--text-light-gray); margin: 0; line-height: 1.5; }
-.photo-gallery { display: flex; gap: 0.75rem; justify-content: center; margin-top: 0.5rem; }
-.photo-gallery img { width: 90px; height: 60px; object-fit: cover; border-radius: 6px; border: 1px solid rgba(255, 255, 255, 0.5); opacity: 0.8; transition: all 0.3s ease; cursor: pointer; }
+.footer-column h5 { font-size: 0.9rem; margin: 1rem 0 0.5rem 0; font-weight: 600; color: var(--text-light-gray); }
+.footer-column p { font-size: 0.85rem; color: var(--text-light-gray); margin: 0; line-height: 1.5; }
+.photo-gallery { display: flex; gap: 0.75rem; justify-content: center; margin-top: 1rem; }
+.photo-gallery img { width: 120px; height: 80px; object-fit: cover; border-radius: 6px; border: 1px solid rgba(255, 255, 255, 0.5); opacity: 0.8; transition: all 0.3s ease; cursor: pointer; }
 .photo-gallery img:hover { opacity: 1; transform: scale(1.05); }
 
 /* --- MODAL/LIGHTBOX STYLES --- */

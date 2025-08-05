@@ -1,4 +1,4 @@
-<div class="login-container">
+<div class="register-container">
   
   <div class="branding-section">
     <div class="logo">
@@ -7,51 +7,28 @@
     <h1 class="college-name">Carmel College of Engineering and Technology</h1>
   </div>
 
-  <div class="login-card">
-    <h2 class="login-title">Login Here</h2>
-    <form (ngSubmit)="onLogin()">
+  <div class="register-card">
+    <h2 class="register-title">Create an Account</h2>
+    <form #registerForm="ngForm" (ngSubmit)="onRegister()">
       <div class="input-group">
-        <input type="email" id="email" name="email" placeholder="Email Address" [(ngModel)]="loginData.email" required>
+        <input type="email" id="email" name="email" placeholder="Email Address" [(ngModel)]="registerData.email" required>
       </div>
       <div class="input-group">
-        <input type="password" id="password" name="password" placeholder="Password" [(ngModel)]="loginData.password" required>
+        <input type="password" id="password" name="password" placeholder="Password" [(ngModel)]="registerData.password" required>
       </div>
-       <div *ngIf="errorMessage" class="error-message">
-          {{ errorMessage }}
-        </div>
-      <button type="submit" class="login-btn">Sign In</button>
+       <div class="input-group">
+        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" [(ngModel)]="confirmPassword" required>
+      </div>
+      
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
+
+      <button type="submit" class="register-btn">Register</button>
     </form>
-    <div class="register-link">
-      <span>Don't have an account? <a routerLink="/register">Sign Up</a></span>
+    <div class="login-link">
+      <span>Already have an account? <a routerLink="/login">Sign In</a></span>
     </div>
   </div>
 
-  <footer class="page-footer">
-    <div class="footer-column">
-      <h4>Our Vision</h4>
-      <h5>To mould distinctive engineers with integrity and social commitment.</h5>
-      <p>Our vision is to mould Engineers par Excellence, with Integrity, commitment and human values...</p>
-    </div>
-    <div class="footer-column">
-      <h4>Campus Glimpse</h4>
-      <div class="photo-gallery">
-        <img (click)="openImage('assets/images/college2.jpg')" src="assets/images/college2.jpg" alt="Campus life">
-        <img (click)="openImage('assets/images/college3.jpg')" src="assets/images/college3.jpg" alt="Library and study hall">
-        <img (click)="openImage('assets/images/college4.jpg')" src="assets/images/college4.jpg" alt="Students in a lab">
-      </div>
-    </div>
-    <div class="footer-column">
-      <h4>Our Mission</h4>
-      <h5>Extend harmonious curricular and co-curricular exposure to the students.</h5>
-      <h5>Equip the students to accomplish career goals upholding moral values.</h5>
-      <h5>Encourage the students to contribute for the sustainable development of the society.</h5>
-    </div>
-  </footer>
-
-  <div *ngIf="selectedImageUrl" class="image-modal-overlay" (click)="closeImage()">
-    <div class="image-modal-content">
-      <span class="close-button" (click)="closeImage()">&times;</span>
-      <img [src]="selectedImageUrl" alt="Enlarged campus view">
-    </div>
   </div>
-</div>

@@ -14,21 +14,26 @@ import { AuthService } from '../../services/auth.service';
 export class RegisterComponent {
   registerData = { email: '', password: '' };
   confirmPassword = '';
+  errorMessage: string | null = null;
 
   constructor(private authService: AuthService, private router: Router) { }
 
   onRegister(): void {
+    this.errorMessage = null;
+
     if (this.registerData.password !== this.confirmPassword) {
-      alert('Passwords do not match.');
+      this.errorMessage = 'Passwords do not match.';
       return;
     }
+
     this.authService.register(this.registerData).subscribe({
       next: () => {
         alert('Registration successful! Please log in.');
         this.router.navigate(['/login']);
       },
       error: (err) => {
-        alert(`Registration failed: ${err.error}`);
+        this.errorMessage = typeof err.error === 'string' ? err.error : 'Registration failed. Please try again.';
+        console.error('Registration failed!', err);
       }
     });
   }

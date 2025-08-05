@@ -5,36 +5,38 @@ import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
-  selector: 'app-register',
+  selector: 'app-login',
   standalone: true,
   imports: [CommonModule, FormsModule, RouterLink],
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
-export class RegisterComponent {
-  registerData = { email: '', password: '' };
-  confirmPassword = '';
+export class LoginComponent {
+  loginData = { email: '', password: '' };
   errorMessage: string | null = null;
+  selectedImageUrl: string | null = null;
 
   constructor(private authService: AuthService, private router: Router) { }
 
-  onRegister(): void {
-    this.errorMessage = null;
-
-    if (this.registerData.password !== this.confirmPassword) {
-      this.errorMessage = 'Passwords do not match.';
-      return;
-    }
-
-    this.authService.register(this.registerData).subscribe({
-      next: () => {
-        alert('Registration successful! Please log in.');
-        this.router.navigate(['/login']);
+  onLogin(): void {
+    this.errorMessage = null; 
+    this.authService.login(this.loginData).subscribe({
+      next: (response) => {
+        this.authService.saveToken(response.token);
+        this.router.navigate(['/dashboard']);
       },
-      error: (err) => {
-        this.errorMessage = typeof err.error === 'string' ? err.error : 'Registration failed. Please try again.';
-        console.error('Registration failed!', err);
+      error: (error) => {
+        console.error('Login failed!', error);
+        this.errorMessage = 'Login failed. Please check your credentials.';
       }
     });
+  }
+
+  openImage(imageUrl: string): void {
+    this.selectedImageUrl = imageUrl;
+  }
+
+  closeImage(): void {
+    this.selectedImageUrl = null;
   }
 }

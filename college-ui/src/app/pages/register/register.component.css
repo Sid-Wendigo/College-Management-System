@@ -1,5 +1,9 @@
 body {
-  background-image: url('../../../assets/images/college6.jpg');
+background-image: url('../../../assets/images/college6.jpg');
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+min-height: 100vh;
 }
 .form-container { max-width: 400px; margin: 5rem auto; padding: 2rem; background-color: #ffffff; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center; }
 .form-group { margin-bottom: 1.5rem; text-align: left; }
